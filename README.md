@@ -1,1 +1,1 @@
-# Strivers_DSA
+# DSA-sheets-leetcode-codeforces

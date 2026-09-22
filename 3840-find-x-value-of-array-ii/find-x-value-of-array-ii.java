@@ -23,12 +23,10 @@ class Solution {
 
         res.product = (left.product * right.product) % k;
 
-        // Prefixes completely inside left
         for (int r = 0; r < k; r++) {
             res.cnt[r] += left.cnt[r];
         }
 
-        // Prefixes that continue into right
         for (int r = 0; r < k; r++) {
             int newR = (left.product * r) % k;
             res.cnt[newR] += right.cnt[r];
@@ -105,10 +103,8 @@ class Solution {
             int start = queries[i][2];
             int x = queries[i][3];
 
-            // Persistent update
             update(1, 0, n - 1, index, value);
 
-            // Count prefix products in [start ... n-1]
             Node res = query(1, 0, n - 1, start, n - 1);
 
             ans[i] = res.cnt[x];
